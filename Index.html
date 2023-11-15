@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<h1> Bar Chart from library Chart js </h1>
+<div>Week Twelve AP Pole Rankings Top 15 by Points</div>
+<div>
+  <canvas id="Barchart"></canvas>
+</div>
+<script>
+  const ctx = document.getElementById('Barchart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Georgia', 'Michigan', 'Ohio State','Florida State','Washington','Oregon','Texas','Alabama','Louisville','Oregon State','Missouri','Penn State','Ole Miss','Oklahoma','LSU',],
+      datasets: [{
+        label: ' # of Points',
+        data: [1540, 1464, 1433, 1366, 1322,1218, 1180, 1141, 1002, 934,917, 865, 810, 733, 703],
+        borderWidth: 12
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+<h1> Profit chart from library Plotly</h1>
+  <div id="myDiv" style="width:100%;max-width:700px"></div>
+  <script>
+var data = [
+  {
+    type: "indicator",
+    mode: "number+gauge+delta",
+    gauge: { shape: "bullet" },
+    delta: { reference: 300 },
+    value: 174.13,
+    domain: { x: [0, 1], y: [0, 1] },
+    title: { text: "SPOT" }
+  }
+];
+
+var layout = { width: 600, height: 250 };
+Plotly.newPlot('myDiv', data, layout);
+
+  </script>
+<h1>Pie Chart from library Google</h1>
+<body>
+<div
+id="myChart" style="width:100%; max-width:600px; height:500px;">
+</div>
+
+<script>
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+// Set Data
+const data = google.visualization.arrayToDataTable([
+  ['Contry', 'Mhl'],
+  ['Wins', 8],
+  ['Loss', 2],
+  ['TBD', 2],
+]);
+
+// Set Options
+const options = {
+  title:'OU Game Score Record 2023'
+};
+
+// Draw
+const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+chart.draw(data, options);
+
+}
+</script>
+
+</body>
+<h1>Text script from library D3.js</h1>
+  <body id = "body">
+<p>The script below selects the body element and appends a paragraph with the text "Part of OU's Fight Song":</p> 
+  </body>
+<script>
+d3.select("body").append("p").text("Rah, Oklahoma! Rah, Oklahoma! Rah, Oklahoma! O-K-U! ");
+</script>
+</html>
